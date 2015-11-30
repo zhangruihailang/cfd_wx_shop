@@ -1,0 +1,117 @@
+<main id="main-content" role="main">
+	<section class="section">
+		<div class="container">
+<%= form_for(@product , html: { multipart: true }) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label "名称" %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  
+  
+   <div class="form-group">
+    <%= f.label "标题" %><br>
+   <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  
+  <span class="form-group">
+    <%= f.label "图片" %><br>
+  <%= f.file_field :thumbnail, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
+  </span>
+  
+  <div class="form-group">
+    <%= f.label "原价" %><br>
+    <%= f.number_field :promotion_price , class: 'form-control'%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "促销价" %><br>
+   <%= f.number_field :cost_price, class: 'form-control' %>
+  </div>
+  
+  
+   <div class="form-group">
+    <%= f.label "产地" %><br>
+  <%= f.text_field :producing_area , class: 'form-control'%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "净含量" %><br>
+   <%= f.number_field :net_content , class: 'form-control'%>
+  </div>
+  
+   <div class="form-group">
+    <%= f.label "厂家" %><br>
+  <%= f.text_field :factory, class: 'form-control' %>
+  </div>
+  
+    <div class="form-group">
+    <%= f.label "酒精度" %><br>
+   <%= f.number_field :alcoholic_strength, class: 'form-control' %>
+  </div>
+  
+    <div class="form-group">
+    <%= f.label "规格" %><br>
+   <%= f.text_field :specification, class: 'form-control' %>
+  </div>
+  
+    <div class="form-group">
+    <%= f.label "箱规" %><br>
+   <%= f.text_field :specification_box, class: 'form-control' %>
+  </div>
+  
+  
+  <div class="form-group">
+    <%= f.label "储存条件" %><br>
+    <%= f.text_field :store_condition , class: 'form-control'%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "香型" %><br>
+    <%= f.text_field :flavour_type , class: 'form-control'%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "品牌" %><br>
+     <%= f.text_field :brand , class: 'form-control'%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "原料" %><br>
+     <%= f.text_field :materials , class: 'form-control'%>
+  </div>
+  
+  <div div="form-group">
+    <%= f.label "描述" %><br>
+    <%#= f.text_area :content %>
+    <%= f.kindeditor :description ,:window_onload => true, class: 'form-control'%>
+  </div>
+  
+ 
+  <div class="form-group">
+    <%#= f.submit%>
+    <center>
+      
+      <a href="/products" class="btn btn-info">返回</a> &nbsp&nbsp&nbsp&nbsp
+      <input type="submit" name="commit" value="发布" class="btn btn-info"  />
+      
+    </center>
+      
+  </div>
+<% end %>
+    </div>
+	</section>
+			<!-- // FEATURED PRODUCTS -->
+</main>
+		<!-- // SITE MAIN CONTENT -->

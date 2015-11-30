@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  title: MyString
+  thumbnail: MyString
+  promotion_price: 1
+  cost_price: 1
+  producing_area: MyString
+  net_content: 1
+  factory: MyString
+  alcoholic_strength: 1
+  specification: MyString
+  specification_box: MyString
+  store_condition: MyString
+  flavour_type: MyString
+  brand: MyString
+  materials: MyString
+  description: MyText
+
+two:
+  name: MyString
+  title: MyString
+  thumbnail: MyString
+  promotion_price: 1
+  cost_price: 1
+  producing_area: MyString
+  net_content: 1
+  factory: MyString
+  alcoholic_strength: 1
+  specification: MyString
+  specification_box: MyString
+  store_condition: MyString
+  flavour_type: MyString
+  brand: MyString
+  materials: MyString
+  description: MyText

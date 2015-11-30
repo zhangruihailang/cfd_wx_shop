@@ -1,0 +1,45 @@
+<main id="main-content" role="main">
+					
+			<section class="section">
+				<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+ <table class="table">
+    <tr>
+      <th>名称</th>
+      <th>品牌</th>
+      <th>原价</th>
+      <th>促销价</th>
+     
+      <th colspan="3">操作</th>
+    </tr>
+    <tr>
+     <% @products.each do |product| %>
+      <tr class="info">
+        <td ><%= product.name %></td>
+        <td><%= product.brand %></td>
+        <td><%= product.cost_price %></td>
+        <td><%= product.producing_area %></td>
+        <td><%= link_to '查看', product %></td>
+        <td><%= link_to '修改', edit_product_path(product) %></td>
+        <td><%= link_to '删除', product, method: :delete, data: { confirm: '确定删除吗?' } %></td>
+      </tr>
+    <% end %>
+    
+    
+    </tr>
+  </table>
+
+<br>
+
+<button type="button" class="btn btn-info" onclick="goto('/products/new')">发布商品</button>
+
+<br><br>
+
+</div>
+			</section>
+			<!-- // FEATURED PRODUCTS -->
+			
+		</main>
+		<!-- // SITE MAIN CONTENT -->

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    
+    render 'new', :layout => 'product'
   end
   
   
@@ -38,21 +38,22 @@ class UsersController < ApplicationController
   def create
     #验证短信码
     
-    @smscode = Smscode.find_by(mobile: params[:user][:mobile]) 
+    # @smscode = Smscode.find_by(mobile: params[:user][:mobile]) 
     #p "------------------------------session[:smscode]:#{@smscode.code}---------------------------------------"
-    p "----------------------------  params[:user][:smscode]:#{params[:user][:smscode]}---------------------------------------"
+    # p "----------------------------  params[:user][:smscode]:#{params[:user][:smscode]}---------------------------------------"
     #注册过的用户不能再注册
     
     @user = User.find_by(mobile: params[:user][:mobile]) 
     if @user
       flash[:success] = "该手机号已经注册过!"
-      render 'new'
+      render 'new', :layout => 'product'
     else
       
       # url = "http://www.charmdate.cn:9090/Charm/mobileUserManageNRAction.do?command=compareSmsCodeCallBackMess&mobile=#{params[:user][:mobile]}&smscode=#{params[:user][:smscode]}"
       # flag = JSON.parse(URI.parse(url).read)["status"]
+      if  !(params[:user][:mobile].blank?)
 
-      if !(params[:user][:smscode].blank?) && !(params[:user][:mobile].blank?) && !(@smscode.nil?) && (@smscode.code == params[:user][:smscode])
+      # if !(params[:user][:smscode].blank?) && !(params[:user][:mobile].blank?) && !(@smscode.nil?) && (@smscode.code == params[:user][:smscode])
       #if !(params[:user][:smscode].blank?) && !(params[:user][:mobile].blank?) && !(flag.nil?) && flag == '1' 
         #验证码正确
         @user = User.new(user_params)
@@ -63,12 +64,12 @@ class UsersController < ApplicationController
           # UserMailer.account_activation(@user).deliver_now
           # @user.send_activation_email
           # flash[:info] = "Please check your email to activate your account."
-          redirect_to root_url
+          redirect_to '/admin/index'
         else
           #@user = User.new
           #p "---------------------@user#{@user}--------------------------------------"
           #p "---------------------@user#{@user.errors.full_messages.each{|msg| p msg} }--------------------------------------"
-          render 'new'
+          render 'new', :layout => 'product'
               
            #render text: "errors"
         end
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
          @user = User.new
           p "---------------------@user#{@user}--------------------------------------"
         flash[:info] = "验证码不正确"
-        render 'new'
+        render 'new', :layout => 'product'
       end
     end
     

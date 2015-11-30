@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813064247) do
+ActiveRecord::Schema.define(version: 20151130144931) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "project_id"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20150813064247) do
   end
 
   add_index "attachments", ["project_id"], name: "index_attachments_on_project_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "good_reads", force: :cascade do |t|
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "good_reads", ["product_id"], name: "index_good_reads_on_product_id"
 
 # Could not dump table "microposts" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -37,6 +52,30 @@ ActiveRecord::Schema.define(version: 20150813064247) do
 
   add_index "orders", ["project_id"], name: "index_orders_on_project_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "thumbnail"
+    t.integer  "promotion_price"
+    t.integer  "cost_price"
+    t.string   "producing_area"
+    t.integer  "net_content"
+    t.string   "factory"
+    t.integer  "alcoholic_strength"
+    t.string   "specification"
+    t.string   "specification_box"
+    t.string   "store_condition"
+    t.string   "flavour_type"
+    t.string   "brand"
+    t.string   "materials"
+    t.text     "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "category_id"
+  end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"

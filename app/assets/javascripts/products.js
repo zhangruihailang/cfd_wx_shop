@@ -16,6 +16,19 @@ jQuery(function($) {
 			}
 		});
 		
+		var i = e(this),
+      o = i.closest(".item"),
+      u = o.data("product-id");
+    cookie = t();
+    cookie = r(cookie);
+    for (var a in cookie) {
+      if (cookie[a].id == u) {
+        cookie.splice(a, 1)
+      }
+    }
+    n(cookie);
+  
+		
 	});
 	
 	
@@ -36,7 +49,7 @@ jQuery(function($) {
 			temp = cookie[x].price;
 			temp = temp.replace( /^\D+/g, '');
 			temp = parseFloat(temp).toFixed(2);
-			
+			row_total = temp * cookie[x].qty;
 			var $new = $('<tr> \
 							<td> \
 								<a class="entry-thumbnail" href="' + cookie[x].thumbnail + '" data-toggle="lightbox">\
@@ -52,7 +65,7 @@ jQuery(function($) {
 									<button type="button" class="up"><i class="iconfont-caret-up inline-middle"></i></button> \
 								</div> \
 							</td> \
-							<td class="hidden-xs"><strong class="text-bold row-total">$' + temp + '</strong></td> \
+							<td class="hidden-xs"><strong class="text-bold row-total">￥' +row_total + '</strong></td> \
 							<td class="hidden-xs"><button type="button" class="close" aria-hidden="true">×</button></td> \
 						</tr>');
 			
@@ -86,7 +99,7 @@ jQuery(function($) {
 			unit_price = $row.find('.unit-price').text(),
 			row_total = unit_price.replace( /^\D+/g, '') * val;
 		
-		$row.find('.row-total').text('$' + row_total.toFixed(2));
+		$row.find('.row-total').text('￥' + row_total.toFixed(2));
 		
 		update_cart_total();
 	});
@@ -124,8 +137,8 @@ jQuery(function($) {
 			}
 		});
 		
-		$('.shopcart-total .cart-subtotal > .pull-right').text('$' + subtotal.toFixed(2));
-		$('.shopcart-total .cart-total > .pull-right').text('$' + total.toFixed(2));
+		$('.shopcart-total .cart-subtotal > .pull-right').text('￥' + subtotal.toFixed(2));
+		$('.shopcart-total .cart-total > .pull-right').text('￥' + total.toFixed(2));
 	}
 	
 	

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :categories
+
+  get 'admin/index'
+
+  get 'product/index'
+
+  resources :products
+
   get 'order/new'
 
   get 'order/create'
@@ -7,7 +15,7 @@ Rails.application.routes.draw do
   mount WeixinRailsMiddleware::Engine, at: "/"
   resources :projects
 
-  root 'static_pages#home'
+  root 'static_pages#goods_temai_mobile'
   get 'help' => 'static_pages#help'
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
@@ -40,6 +48,14 @@ Rails.application.routes.draw do
   
   get 'smscode' => 'sms_code#send_code'
 
+  get 'goods' => 'static_pages#goods'
+  get 'goods_temai_mobile' => 'static_pages#goods_temai_mobile'
+  get 'goods_zhekou_mobile' => 'static_pages#goods_zhekou_mobile'
+  
+  get 'cart' => 'static_pages#cart'
+  
+  post 'search_products' => 'products#search_products'
+  get 'delete_product' => 'products#delete_product'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

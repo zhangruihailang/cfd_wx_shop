@@ -1,0 +1,86 @@
+
+<style>
+  .liked{
+    color:#DD514C;
+  }
+
+</style>
+    <% cache @good do%>
+<div class="am-panel am-panel-default" style="border:0;">
+<div class="am-panel-bd" >
+      <br>
+        <!-- 图片轮播 -->
+      <div class="am-g" >
+       
+        
+         <figure data-am-widget="figure" class="am am-figure am-figure-default "   data-am-figure="{  pureview: 'true' }">
+     
+
+    <img src="http://<%=@good.thumbnail.url("378x505")%>"  data-rel="http://<%=@good.thumbnail.url("378x505")%>" />
+      <figcaption class="am-figure-capition-btm">
+            <%=@good.name%>
+          </figcaption>
+  
+  </figure>
+    
+        
+      </div>
+      <br>
+      <div class="am-g" >
+        <div class="am-u-sm-6" align="left">
+          <span style="font-size:1.5rem;color:#DD514C;">￥<%= @good.cost_price%></span>
+          <span style="font-size:1.2rem;"><del>￥<%= @good.promotion_price%></del></span>
+        </div>
+         <div class="am-u-sm-6" align="right">
+          <span style="font-size:1.5rem;">浏览次数&nbsp;<%= @good.good_reads.count%></span>
+        </div>
+      </div>
+      
+      <hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+
+   
+        
+      <!-- 标题和描述展示-->
+      
+      <div class="am-g" >
+        <div class="am-u-sm-12">
+          
+        
+            <article class="am-article">
+            <div class="am-article-hd">
+              <h1 class="am-article-title" style="color:#4A779D;font-size:1.6rem;">
+                 <% if !@good.title.blank?%>
+            
+              <%=@good.title  %>
+            <br><br>
+            <%end%></h1>
+             
+            </div>
+          
+            <div class="am-article-bd">
+                <%= raw(@good.description) %>
+              
+            </div>
+          </article>
+           
+            
+        </div>
+      </div>
+      <br>
+     
+        
+     
+      
+     
+      <br>
+
+      
+ 
+</div>
+</div>
+
+
+   <% end%>
+
+
+

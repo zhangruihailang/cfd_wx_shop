@@ -1,7 +1,7 @@
 # coding: utf-8
 require 'carrierwave/processing/mini_magick'
 # 在图片空间里面定义好的“缩略图版本名称”，以防止调用错误
-IMAGE_UPLOADER_ALLOW_IMAGE_VERSION_NAMES = %(60x60 200x200 400x400 60 200 400)
+IMAGE_UPLOADER_ALLOW_IMAGE_VERSION_NAMES = %(60x60 200x200 400x400 60 200 400 378x505)
 class ImageUploader < CarrierWave::Uploader::Base
   def store_dir
     "#{model.class.to_s.underscore}/#{mounted_as}"

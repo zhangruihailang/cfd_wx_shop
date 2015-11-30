@@ -1,0 +1,178 @@
+<% provide(:body_class_name,'products-view')%>
+<% provide(:title,'酒樂玖名酒品鉴馆 | 清仓特卖')%>
+	<%= stylesheet_link_tag  "jquery.nouislider" %>
+	<%= stylesheet_link_tag  "isotope" %>
+	<%= stylesheet_link_tag  "innerpage" %>
+	<style>
+		.product_font{
+    font-size: 1em;
+    -webkit-transition:font-size 0.2s ease-out;
+}
+
+@media only screen and (max-width: 1200px) { .product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 1100px) {.product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 1000px) {.product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 900px) {.product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 800px) { .product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 700px) { .product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 600px) { .product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 500px) { .product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 400px) { .product_font{ font-size: 1.1em; }}
+@media only screen and (max-width: 300px) { .product_font{ font-size: 1em; }}
+	</style>
+		<!-- 面包屑导航开始 -->
+		<!-- 
+		<div class="breadcrumb-container">
+			<div class="container">
+				<div class="relative">
+					<ul class="bc push-up unstyled clearfix">
+						<li><a href="/">首页</a></li>
+						<li class="active">清仓特卖</li>
+					 
+					 <li class="active">名酒折扣</li>
+					 
+					</ul>
+				</div>
+			</div>
+		</div>
+		-->
+		<!-- // 面包屑导航结束 -->
+		
+		<!--    正文开始 -->
+		<main id="main-content" role="main">
+			<div class="container">
+				<div class="row">
+					
+					<div class="m-t-b clearfix">
+						<!--    左侧导航栏开始 -->
+						<aside class="col-xs-12 col-sm-4 col-md-3">
+							<section class="sidebar push-up">
+						
+								<!--    商品分类开始 -->
+							
+								<!-- // 商品分类结束 -->
+								
+								<!-- BRANDS -->
+							
+								<!-- // BRANDS -->
+								
+								<!-- 产品筛选开始 -->
+								<section class="side-section bg-white">
+									<header class="side-section-header">
+										<h3 class="side-section-title">清仓特卖</h3>
+									</header>
+									
+									<!--   按价格区间筛选 开始 -->
+									<div id="filter-by-price" class="side-section-content">
+										<h4 class="side-section-subheader">按价格筛选</h4>
+										<div class="range-slider-container">
+											<div class="range-slider" data-min="0" data-max="2000" data-step="10" data-currency="$"></div>
+											<div class="range-slider-value clearfix">
+												<span>价格: &ensp;</span>
+												<span class="min"></span>
+												<span class="max"></span>
+											</div>
+										</div>
+									</div>
+									<!-- //按价格区间筛选 结束 -->
+									
+									
+								
+							
+								
+								<!-- PROMO -->
+									<!-- 
+								<div class="promo inverse-background" style="background: url('images/demo/Barn-Dress-Girl_t.jpg') no-repeat; background-size: auto 100%;">
+									<div class="inner text-center np">
+										<div class="ribbon">
+											<h6 class="nmb">New Arrivals</h6>
+											<h5 class="text-semibold uppercase nmb">Leather Fashion</h5>
+											<div class="space10"></div>
+											<a href="products.html" class="with-icon prepend-icon"><i class="iconfont-caret-right"></i><span> Shop Now</span></a>
+										</div>
+									</div>
+								</div>
+								 -->
+								<!-- // PROMO -->
+								
+							</section>
+								</section>
+						</aside>
+						<!-- // 左侧导航栏结束-->
+						
+						
+						<section class="col-xs-12 col-sm-8 col-md-9">
+							
+							<section class="products-wrapper">
+								<!-- DISPLAY MODE - NUMBER OF ITEMS TO BE DISPLAY - PAGINATION -->
+							
+								<!-- // DISPLAY MODE - NUMBER OF ITEMS TO BE DISPLAY - PAGINATION -->
+								
+								<!-- PRODUCT LAYOUT -->
+								<div class="products-layout grid m-t-b add-cart" data-product=".product" data-thumbnail=".entry-media .thumb" data-title=".entry-title > a" data-url=".entry-title > a" data-price=".entry-price > .price">
+										
+										<% @products.each do |product| %>
+										
+									
+									
+										<div class="product" data-product-id="<%= product.id%>" data-category="白酒|白酒-<%= product.brand%>" data-brand="<%= product.brand%>" data-price="<%= product.promotion_price%>" >
+										<div class="entry-media">
+											<img data-src="http://<%=product.thumbnail.url("378x505")%>" alt="" class="lazyLoad thumb" />
+											<div class="hover">
+												<a href="#" onclick="goto('/product/index?id=<%=product.id%>')" class="entry-url"></a>
+												 
+												<ul class="icons unstyled">
+													<li>
+														<div class="circle ribbon ribbon-sale">热卖</div>
+													</li>
+													<li>
+														<a href="http://<%=product.thumbnail.url("378x505")%>" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
+													</li>
+													
+													<li>
+														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
+													</li>
+													
+												</ul>
+												
+											  <!--
+												<div class="rate-bar">
+													<input type="range" value="4.5" step="0.5" id="backing1" />
+													<div
+													-->
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title product_font">
+												<a href="product.html"><%= product.name %></a>
+											</h5>
+											<div class="entry-description visible-list">
+												<p><%= product.title%></p>
+											</div>
+											<div class="entry-price">
+												<s class="entry-discount">￥<%= product.cost_price%></s>
+												<strong class="accent-color price">￥<%= product.promotion_price%></strong>
+												<!--<a href="#" class="btn btn-round btn-default add-to-cart visible-list">添加到购物车</a>-->
+											</div>
+											
+										</div>
+									</div>
+									
+										<% end%>
+								</div>
+								<!-- // PRODUCT LAYOUT -->
+							</section>
+							
+						</section>
+					</div>
+					
+				</div>
+			</div>
+		</main>
+		<!-- // 正文结束 -->
+
+<!-- Particular Page Javascripts -->
+	<%= javascript_include_tag "jquery.nouislider" %>
+	<%= javascript_include_tag "jquery.isotope.min" %>
+	<%= javascript_include_tag "products" %>
+<!-- // Particular Page Javascripts -->

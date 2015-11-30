@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <!-- 
+  <link rel="alternate icon" type="image/png" href="assets/i/favicon.png
+  -->
+
+  <!--<link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css"/>-->
+ <%= stylesheet_link_tag 'amazeui.min'%>
+  <style>
+  @font-face {
+  font-family: FontAwesome;
+  src: url('<%=font_path("fontawesome-webfont.eot?v=4.3.0")%>');
+  src: url('<%=font_path("fontawesome-webfont.eot?#iefix&v=4.3.0")%>') format('embedded-opentype'), url('<%=font_path("fontawesome-webfont.woff2?v=4.3.0")%>') format('woff2'), url('<%=font_path("fontawesome-webfont.woff?v=4.3.0")%>') format('woff'), url('<%=font_path("fontawesome-webfont.ttf?v=4.3.0")%>') format('truetype'), url('<%=font_path("fontawesome-webfont.svg?v=4.3.0#fontawesomeregular")%>') format('svg');
+  font-weight: 400;
+  font-style: normal
+}
+  
+  
+    .get {
+      background: #1E5B94;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 40px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+    .hope {
+      background: #0bb59b;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+  </style>
+ <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+ 
+</head>
+<body>
+
+
+
+
+<%#= render 'layouts/header' %>
+  <header class="am-topbar am-topbar-fixed-top">
+    
+  <div class="am-container" >
+    
+
+    <h1 class="am-topbar-brand">
+    <% if (request.url != (request.protocol + request.host_with_port + "/") && request.url != (request.protocol + request.host_with_port + "/playmates") )%>
+    <i class="am-header-icon am-icon-chevron-left am-icon-sm" style="color:#F3936A" onclick="goback()"></i>
+    &nbsp;&nbsp;&nbsp;
+    <%end %>
+    
+     <%=image_tag "logo.jpg",:height => '40px',:width => '40px' %> 
+     <a href="/" style="text-align:center">
+       &nbsp;&nbsp;&nbsp;酒樂玖 <font size="1.7rem">名酒品鉴馆</font></a>
+    </h1>
+
+   
+  </div>
+  
+
+</header>
+
+<script>
+  function goback(){
+		history.go(-1);
+	 // location.reload()
+	}
+</script>
+
+
+  <% flash.each do |message_type, message| %>
+    <%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <div class="am-alert am-alert-danger" data-am-alert>
+      <button type="button" class="am-close">&times;</button>
+      <p style="font-size:1.5rem;"><%= message%></p>
+    </div>
+
+  <% end %>
+   <%= yield %>
+<%#= render 'layouts/footer' %>
+<footer class="footer">
+  <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">
+      <div class="am-g" style="background:#FFFFFF">
+       
+      <div class="am-u-sm-4" >
+       
+        <span style="font-color:#000000"> 18635581251</span>
+      </div>
+      <div class="am-u-sm-4">
+       <a class="am-btn am-btn-primary" href="tel:18635581251">
+        <i class="am-icon-phone"></i>
+        拨打电话
+      </a>
+      </div>
+      <div class="am-u-sm-4">
+       
+        
+       <a class="am-btn am-btn-primary" href="sms:18635581251?body=您好，我看到您发布的商品信息，想咨询">
+        <i class="am-icon-envelope-o"></i>
+        短信
+      </a>
+      </div>
+     </div>
+      <br>
+  </div>
+
+</footer>
+
+
+
+
+
+  <%#= javascript_include_tag "http://threejed.b0.upaiyun.com/assets/javascripts/kindeditor.js"%>
+ <%#= javascript_include_tag "http://threejed.b0.upaiyun.com/assets/javascripts/turbolinks.js"%>
+ <%#= javascript_include_tag "http://threejed.b0.upaiyun.com/assets/javascripts/jquery_ujs.js"%>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<%= javascript_include_tag "amazeui.ie8polyfill.min" %>
+
+<![endif]-->
+ 
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script>
+<%#= javascript_include_tag "CityJson" %>
+<%#= javascript_include_tag "DistrictJson" %>
+<%# javascript_include_tag "ProJson" %>
+<%= stylesheet_link_tag  "http://cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.css" %>
+<%= javascript_include_tag "http://cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.js" %>
+<script>
+ 
+  function goto(url){
+		window.location.href = url;
+  }
+</script>
+<%#= javascript_include_tag "ajaxfileupload" %>
+
+
+
+
+
+
+</body>
+</html>

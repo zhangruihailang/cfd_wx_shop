@@ -1,0 +1,129 @@
+<div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品管理</strong> / <small>商品发布</small></div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12 am-u-md-6">
+        <div class="am-btn-toolbar">
+          <div class="am-btn-group am-btn-group-xs">
+            <button type="button" class="am-btn am-btn-default" onclick="goto('/products/new')"><span class="am-icon-plus"></span> 新增</button>
+            
+            <!--<button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>-->
+            <!--<button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>-->
+            <!--<button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>-->
+          </div>
+        </div>
+      </div>
+      
+      <div class="am-u-sm-12 am-u-md-4 am-form-inline">
+        
+        
+        <form class="am-form-inline" role="form" id="search_form" method="post" action="/search_products">
+          <div class="am-form-group">
+            <input type="text" class="am-form-field" name="keyword" id="keyword" value="<%=@keyword%>">
+            <input type="hidden" name="page_num" id="page_num" value=""/>
+          </div>
+           <button class="am-btn am-btn-default" type="button" onclick="search_products()">搜索</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <!--<form class="am-form">-->
+          <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <!--<th class="table-check"><input type="checkbox" /></th>-->
+                <th class="table-id">ID</th>
+                <th class="table-title">名称</th>
+                <th class="table-type">标题</th>
+                <th class="table-type">所属栏目</th>
+                <th class="table-author am-hide-sm-only">图片</th>
+                <th class="table-set">操作</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><a href="#" onclick="goto('/products/<%= product.id %>')"><%= product.name %></a></td>
+              <td><a href="#" onclick="goto('/products/<%= product.id %>')"><%= product.title %></a></td>
+              <td><%= product.category.name %></td>
+              <td class="am-hide-sm-only">
+                <%= render :partial => "shared/one_pic", :locals => { :pic => product.thumbnail } %>
+              </td>
+              <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <a class="am-btn am-btn-success am-btn-xs" onclick="goto('/products/<%= product.id %>/edit')"><span class="am-icon-pencil-square-o"></span>&nbsp; 编辑</a>
+                    <br><br>
+                    <a class="am-btn am-btn-success am-btn-xs " href="/product/index?id=<%= product.id %>" target="_blank"><span class="am-icon-copy"></span>&nbsp; 预览</a>
+                    <br><br>
+                    <a class="am-btn am-btn-success am-btn-xs " data-confirm="确定删除吗?" onclick="goto('/delete_product?id=<%= product.id %>')"><span class="am-icon-trash"></span>&nbsp;&nbsp; 删除</a>
+                    <br>
+                    </div>
+                </div>
+              </td>
+            </tr>
+             <% end %>
+          </tbody>
+        </table>
+
+<!-- 分页 -->
+
+<% if @total_page !=0%>
+	  <ul class="am-pagination">
+  <% if @page_num.to_i == 0%>
+	 <!--<li class="am-pagination-prev"><a href="#" style="font-size:1.2rem;">&laquo; 上一页</a></li>-->
+	<% else%>
+	  <li class="am-pagination-prev"><a style="font-size:1.2rem;" onclick="set_page_num('<%= @page_num.to_i - 1 %>')">&laquo; 上一页</a></li>
+	<%end%>
+  
+  <% if @page_num.to_i == (@total_page.to_i - 1)%>
+	   <!--<li class="am-pagination-next"><a style="font-size:1.2rem;" href="#">下一页 &raquo;</a></li>-->
+	<% else%>
+		<li class="am-pagination-next"><a style="font-size:1.2rem;" onclick="set_page_num('<%= @page_num.to_i + 1 %>')">下一页 &raquo;</a></li>
+	<%end%>
+	
+
+  </ul>
+  <%else%>
+    <div class="am-panel-bd" >
+  
+   <!-- 没有数据提醒 -->
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-lg-12" align="center" style="font-size:1.5rem;">
+          
+          没有搜索到相关频道
+        </div>
+      </div>
+    </div>
+	<%end%>
+
+
+          
+      </div>
+
+    </div>
+
+<script>
+  function set_page_num(page_num){
+    $('#page_num').val(page_num);
+    search_products();
+  }
+  function search_products(){
+    //alert('1111');
+    var keyword = $('#keyword').val();
+    if(keyword != ''){
+       search_form.submit();
+    }else{
+       if($('#page_num').val() == ''){
+         window.location.href = "/products"
+       }else{
+         window.location.href = "/products?page_num="+$('#page_num').val();
+       }
+       
+    }
+  }
+</script>

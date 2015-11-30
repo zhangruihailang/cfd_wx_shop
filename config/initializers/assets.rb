@@ -44,3 +44,15 @@ Rails.application.config.assets.precompile += %w( minified.js )
 Rails.application.config.assets.precompile += %w( owl.carousel.js )
 Rails.application.config.assets.precompile += %w( jquery.flexslider-min.js )
 Rails.application.config.assets.precompile += %w( modernizr.min.js )
+
+Rails.application.config.assets.precompile += %w( jquery.nouislider.css )
+Rails.application.config.assets.precompile += %w( isotope.css )
+Rails.application.config.assets.precompile += %w( innerpage.css )
+Rails.application.config.assets.precompile += %w( jquery.nouislider.js )
+Rails.application.config.assets.precompile += %w( jquery.isotope.min.js )
+Rails.application.config.assets.precompile += %w( products.js)
+
+
+Rails.application.config.assets.precompile += %w( amazeui.ie8polyfill.min.js )
+Rails.application.config.assets.precompile += %w( amazeui.min.css )
+Rails.application.config.assets.precompile += %w( admin.css )

@@ -1,0 +1,165 @@
+<div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品管理</strong> / <small>商品发布</small></div>
+    </div>
+<div class="am-panel am-panel-default">
+  <%#= form_for(@user) do |f| %>
+
+
+  <div class="am-panel-bd">
+    <div class="am-g">
+      <div class="am-u-lg-12 am-u-md-12 am-u-sm-centered">
+      <h2>发布新商品</h2>
+      <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+    </div>
+    </div>
+<%= form_for(@product, html: { id: 'add_product_form',multipart: true }, :class => 'am-form') do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+          
+           <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              名称
+            </div>
+            <div class="am-u-sm-8 am-u-md-4">
+              <!--<input type="text" class="am-form-field">-->
+              <%= f.text_field :name, :class => 'am-form-field'%>
+            </div>
+            <div class="am-hide-sm-only am-u-md-6">*必填</div>
+          </div>
+          
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              标题
+            </div>
+            <div class="am-u-sm-8 am-u-md-4">
+              <!--<input type="text" class="am-form-field">-->
+              <%= f.text_field :title, :class => 'am-form-field'%>
+            </div>
+            <div class="am-hide-sm-only am-u-md-6">*必填</div>
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              封面图片
+            </div>
+            <div class="am-u-sm-4 am-u-md-4 am-text-left">
+              <!--<input type="text" class="am-form-field">-->
+               <%#= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'  %>
+               <div class="am-form-group am-form-file">
+                  <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                  <input id="channel_class_picture" type="file" name="product[thumbnail]"  accept="image/*">
+                </div>
+            </div>
+            <div class="am-u-sm-4 am-u-md-6 am-text-left">
+            
+            </div>
+            <!--<div class="am-hide-sm-only am-u-md-6">必填</div>-->
+          </div>
+            
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              原价
+            </div>
+            <div class="am-u-sm-8 am-u-md-8 am-u-end col-end">
+              <%= f.text_field :promotion_price, :class => 'am-form-field'%>
+            </div>
+          </div>
+ 
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              促销价
+            </div>
+            <div class="am-u-sm-8 am-u-md-8 am-u-end col-end">
+              <%= f.text_field :cost_price, :class => 'am-form-field'%>
+            </div>
+          </div>
+
+           <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              描述
+            </div>
+            <div class="am-u-sm-8 am-u-md-8 am-u-end col-end">
+            <%= f.kindeditor :description , :class => 'am-form-field', :editor_id => 'my_editor'%>
+            </div>
+          </div>
+          
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              所属栏目
+            </div>
+            <div class="am-u-sm-8 am-u-md-8 am-u-end col-end">
+              
+             <select data-am-selected name="category" id="category">
+               <% Category.all.each do |category|%>
+            <option value="<%=category.id%>" <%= 'selected' if !@product.category.nil? && @product.category.id == category.id %>><%=category.name%></option>
+            
+               <% end%>
+          </select>
+            </div>
+          </div>
+          
+      <br>
+    <div class="am-g" align="center">
+        <div class="am-u-sm-6 am-u-lg-6">
+         <button type="button" name="newgroup" class="am-btn am-btn-primary am-btn-block am-radius"  width="70%"   onclick="return validate();" >
+      发布
+      </button>
+        </div>
+        <div class="am-u-sm-6 am-u-lg-6">
+         <button type="button" name="newgroup" class="am-btn am-btn-primary am-btn-block am-radius"  width="70%"   onclick="goto('/products')" >
+      取消
+      </button>
+        </div>
+      </div>
+    
+<% end %>
+</div>
+</div>
+<script>
+  function validate() {
+     var name = $('#product_name').val().replace(/^\s+|\s+$/g, '');
+     var title = $('#product_title').val().replace(/^\s+|\s+$/g, '');
+     var promotion_price = $('#product_promotion_price').val().replace(/^\s+|\s+$/g, '');
+     var cost_price = $('#product_cost_price').val().replace(/^\s+|\s+$/g, '');
+      var picture = $('#channel_class_picture').val();
+      // var content = $('#channel_content').html();
+       var content = my_editor.html();
+       //alert(content);
+        if(name == ''){
+          show_alert("请填写名称");
+          return false;
+        }else if(title==''){
+          show_alert("请填写标题");
+          return false;
+        }else if(promotion_price==''){
+          show_alert("请填写原价");
+          return false;
+        }else if(cost_price==''){
+          show_alert("请填写促销价");
+          return false;
+        }else if(content==''){
+          show_alert("请填写描述");
+          return false;
+        }
+        else if('<%=@url_path%>'.indexOf('edit') < 0 &&  picture==''){
+          show_alert("请选择封面图片");
+          return false;
+        }else{
+           $('#product_description').val(content);
+           document.getElementById("add_product_form").submit();
+          //return true;
+        }
+       
+     
+  }
+  
+</script>

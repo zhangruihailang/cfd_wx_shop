@@ -1,35 +1,265 @@
-<div class="ui top attached demo menu">
-  <a class="item">
-    <i class="sidebar icon"></i>
-    Menu
-  </a>
-</div>
-<div class="ui bottom attached segment pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <a class="item">
-      <i class="home icon"></i>
-      Home
-    </a>
-    <a class="item">
-      <i class="block layout icon"></i>
-      Topics
-    </a>
-    <a class="item">
-      <i class="smile icon"></i>
-      Friends
-    </a>
-    <a class="item">
-      <i class="calendar icon"></i>
-      History
-    </a>
-  </div>
-  <div class="pusher">
-    <div class="ui basic segment">
-      <h3 class="ui header">Application Content</h3>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-    </div>
-  </div>
-</div>
+	<!-- SITE HEADER -->
+	<header id="site-header" role="banner">
+		<!-- HEADER TOP -->
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-7">
+						<!-- CONTACT INFO -->
+						<div class="contact-info">
+							<i class="iconfont-headphones round-icon"></i>
+							<a href="tel:03512571039">客服热线 0351-2571039</a>
+							<span>酒樂玖名酒品鉴</span>
+							</div>
+						<!-- // CONTACT INFO -->
+					</div> 
+					<div class="col-xs-12 col-sm-6 col-md-5">
+						<ul class="actions unstyled clearfix">
+							<li>
+								<!-- SEARCH BOX -->
+								<div class="search-box">
+									<form action="#" method="post">
+										<div class="input-iconed prepend">
+											<button class="input-icon"><i class="iconfont-search"></i></button>
+											<label for="input-search" class="placeholder">汾酒三十年</label>
+											<input type="text" name="q" id="input-search" class="round-input full-width" required />
+										</div>
+									</form>
+								</div>
+								<!-- // SEARCH BOX -->
+							</li>
+							<!--<li data-toggle="sub-header" data-target="#sub-social">-->
+								<!-- SOCIAL ICONS -->
+							<!--	<a href="javascript:void(0);" id="social-icons">-->
+							<!--		<i class="iconfont-share round-icon"></i>-->
+							<!--	</a>-->
+								
+							<!--	<div id="sub-social" class="sub-header">-->
+							<!--		<ul class="social-list unstyled text-center">-->
+							<!--			<li><a href="#"><i class="iconfont-facebook round-icon"></i></a></li>-->
+							<!--			<li><a href="#"><i class="iconfont-twitter round-icon"></i></a></li>-->
+							<!--			<li><a href="#"><i class="iconfont-google-plus round-icon"></i></a></li>-->
+							<!--			<li><a href="#"><i class="iconfont-pinterest round-icon"></i></a></li>-->
+							<!--			<li><a href="#"><i class="iconfont-rss round-icon"></i></a></li>-->
+							<!--		</ul>-->
+							<!--	</div>-->
+								<!-- // SOCIAL ICONS -->
+							<!--</li>-->
+							<!--<li data-toggle="sub-header" data-target="#sub-cart">-->
+								<!-- SHOPPING CART -->
+							<!--	<a href="javascript:void(0);" id="total-cart">-->
+							<!--		<i class="iconfont-shopping-cart round-icon"></i>-->
+							<!--	</a>-->
+								
+							<!--	<div id="sub-cart" class="sub-header">-->
+							<!--		<div class="cart-header">-->
+							<!--			<span>您的购物车中没有商品，请先去挑选商品吧！</span>-->
+							<!--			<small><a href="cart.html">(查看)</a></small>-->
+							<!--		</div>-->
+							<!--		<ul class="cart-items product-medialist unstyled clearfix"></ul>-->
+							<!--		<div class="cart-footer">-->
+							<!--			<div class="cart-total clearfix">-->
+							<!--				<span class="pull-left uppercase">总计</span>-->
+							<!--				<span class="pull-right total">0元</span>-->
+							<!--			</div>-->
+							<!--			<div class="text-right">-->
+							<!--				<a href="cart.html" class="btn btn-default btn-round view-cart">查看购物车</a>-->
+							<!--			</div>-->
+							<!--		</div>-->
+							<!--	</div>-->
+								<!-- // SHOPPING CART -->
+							<!--</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<!-- ADD TO CART MESSAGE -->
+			<div class="cart-notification">
+				<ul class="unstyled"></ul>
+			</div>
+			<!-- // ADD TO CART MESSAGE -->
+		</div>
+		<!-- // HEADER TOP -->
+		<!-- MAIN HEADER -->
+		<div class="main-header-wrapper">
+			<div class="container">
+				<div class="main-header">
+					<!-- CURRENCY / LANGUAGE / USER MENU -->
+					<div class="actions">
+					
+						<div class="clearfix"></div>
+						<!-- USER RELATED MENU -->
+						<!--<nav id="tiny-menu" class="clearfix">-->
+						<!--	<ul class="user-menu">-->
+						<!--		<li><a href="#">我的账户</a></li>-->
+						<!--		<li><a href="cart.html">购物车</a></li>-->
+						<!--		<li><a href="checkout.html">结算</a></li>-->
+						<!--		<li><a href="#">退出</a></li>-->
+						<!--	</ul>-->
+						<!--</nav>-->
+						<!-- // USER RELATED MENU -->
+					</div>
+					<!-- // CURRENCY / LANGUAGE / USER MENU -->
+					<!-- SITE LOGO -->
+					<!--<div class="logo-wrapper">-->
+					<!--	<a href="index-2.html" class="logo" title="GFashion - Responsive e-commerce HTML Template">-->
+					<!--		<img src="/assets/logo.png" alt="GFashion - Responsive e-commerce HTML Template" />-->
+					<!--	</a>-->
+					<!--</div>-->
+					<!-- // SITE LOGO -->
+					<!-- SITE NAVIGATION MENU -->
+					<nav id="site-menu" role="navigation">
+						<ul class="main-menu hidden-sm hidden-xs">
+							<li class="active">
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="/goods">白酒</a>
+										<!-- MEGA MENU -->
+								<div class="mega-menu" data-col-lg="9" data-col-md="12">
+									<div class="row">
+									
+										<div class="col-md-3">
+											<h4 class="menu-title">品牌</h4>
+											<ul class="mega-sub">
+												<li><a href="products.html">茅台</a></li>
+												<li><a href="products.html">五粮液</a></li>
+												<li><a href="products.html">汾酒</a></li>
+												<li><a href="products.html">泸州老窖</a></li>
+												<li><a href="products.html">剑南春</a></li>
+												<li><a href="products.html">其他</a></li>
+											</ul>
+										</div>
+										
+										<div class="col-md-3">
+											<h4 class="menu-title">产地</h4>
+											<ul class="mega-sub">
+												<li><a href="products.html">贵州</a></li>
+												<li><a href="products.html">四川</a></li>
+												<li><a href="products.html">山西</a></li>
+												<li><a href="products.html">北京</a></li>
+												<li><a href="products.html">江苏</a></li>
+												<li><a href="products.html">其他</a></li>
+											</ul>
+										</div>
+										
+										<div class="col-md-3">
+											<h4 class="menu-title">香型</h4>
+											<ul class="mega-sub">
+												<li><a href="products.html">酱香</a></li>
+												<li><a href="products.html">浓香</a></li>
+												<li><a href="products.html">清香</a></li>
+												<li><a href="products.html">兼香</a></li>
+												<li><a href="products.html">特香</a></li>
+												<li><a href="products.html">其他</a></li>
+											</ul>
+										</div>
+										
+										<div class="col-md-3">
+											<h4 class="menu-title">价位</h4>
+											<ul class="mega-sub">
+												<li><a href="products.html">1-99元</a></li>
+												<li><a href="products.html">100-199元</a></li>
+												<li><a href="products.html">200-299元</a></li>
+												<li><a href="products.html">300-499元</a></li>
+												<li><a href="products.html">500-700元</a></li>
+												<li><a href="products.html">其他</a></li>
+											</ul>
+										</div>
+										
+									</div>
+								</div>
+								<!-- // MEGA MENU -->
+							</li>
+							<li>
+								<a href="/goods">葡萄酒</a>
+								
+								<!-- MEGA MENU -->
+								<div class="mega-menu" data-col-lg="9" data-col-md="12">
+									<div class="row">
+									
+										<div class="col-md-3">
+											<h4 class="menu-title">类型</h4>
+											<ul class="mega-sub">
+												<li><a href="products.html">红葡萄酒</a></li>
+												<li><a href="products.html">白葡萄酒</a></li>
+												<li><a href="products.html">起泡酒</a></li>
+												<li><a href="products.html">其他</a></li>
+											</ul>
+										</div>
+										
+										<div class="col-md-3">
+											<h4 class="menu-title">国家</h4>
+											<ul class="mega-sub">
+												<li><a href="products.html">中国</a></li>
+												<li><a href="products.html">法国</a></li>
+												<li><a href="products.html">澳大利亚</a></li>
+												<li><a href="products.html">德国</a></li>
+												<li><a href="products.html">意大利</a></li>
+												<li><a href="products.html">其他</a></li>
+											</ul>
+										</div>
+										
+										
+											<div class="col-md-3">
+											<h4 class="menu-title">价位</h4>
+											<ul class="mega-sub">
+												<li><a href="products.html">1-49元</a></li>
+												<li><a href="products.html">50-99</a></li>
+												<li><a href="products.html">100-199元</a></li>
+												<li><a href="products.html">200-299元</a></li>
+												<li><a href="products.html">300-499元</a></li>
+												<li><a href="products.html">其他</a></li>
+											</ul>
+										</div>
+										
+										
+									</div>
+								</div>
+								<!-- // MEGA MENU -->
+								
+							</li>
+							
+							<li>
+								<a href="#" onclick="goto('/goods')" >老酒</a>
+							</li>
+							<li>
+								<a href="#" onclick="goto('/goods')" >私人定制</a>
+							</li>
+							<li>
+							<a href="#" onclick="goto('/goods')" >清仓特卖</a>
+							</li>
+							<li>
+								<a href="#" onclick="goto('/goods')" >秒拍</a>
+							</li>
+								
+						</ul>
+						
+						<!-- MOBILE MENU -->
+						<!--<div id="mobile-menu" class="dl-menuwrapper visible-xs visible-sm">-->
+						<!--	<button class="dl-trigger"><i class="iconfont-reorder round-icon"></i></button>-->
+						<!--	<ul class="dl-menu">-->
+						<!--		<li class="active">-->
+						<!--			<a href="javsacript:void(0);">首页</a>-->
+						<!--		</li>-->
+						<!--		<li>-->
+						<!--			<a href="javsacript:void(0);">清仓特卖</a>-->
+						<!--		</li>-->
+						<!--		<li>-->
+						<!--			<a href="javsacript:void(0);">秒拍</a>-->
+									
+									
+						<!--		</li>-->
+						<!--	</ul>-->
+						<!--</div>-->
+						<!-- // MOBILE MENU -->
+
+					</nav>
+					<!-- // SITE NAVIGATION MENU -->
+				</div>
+			</div>
+		</div>
+		<!-- // MAIN HEADER -->
+	</header>
+	<!-- // SITE HEADER -->

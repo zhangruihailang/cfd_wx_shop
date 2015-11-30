@@ -1,0 +1,96 @@
+<main id="main-content" role="main">
+	<section class="section">
+		<div class="container">
+
+
+  <div class="form-group">
+   名称
+    <%= @product.name %>
+  </div>
+  
+  
+   <div class="form-group">
+    标题
+   <%= @product.title %>
+  </div>
+  
+  <span class="form-group">
+   图片
+  <img src="http://<%=@product.thumbnail.url("378x505")%>"  />
+  </span>
+  
+  <div class="form-group">
+    促销价
+    <%= @product.promotion_price %>
+  </div>
+  原价
+  <div class="form-group">
+   
+   <%= @product.cost_price %>
+  </div>
+  
+  
+   <div class="form-group">
+   产地
+  <%= @product.producing_area %>
+  </div>
+  
+  <div class="form-group">
+   净含量
+   <%= @product.net_content %>
+  </div>
+  
+   <div class="form-group">
+    厂家
+  <%= @product.factory %>
+  </div>
+  
+    <div class="form-group">
+    酒精度
+   <%= @product.alcoholic_strength %>
+  </div>
+  
+    <div class="form-group">
+    规格
+   <%= @product.specification %>
+  </div>
+  
+    <div class="form-group">
+    箱规
+   <%= @product.specification_box %>
+  </div>
+  
+  
+  <div class="form-group">
+    储存条件
+    <%= @product.store_condition %>
+  </div>
+  
+  <div class="form-group">
+    香型
+    <%= @product.flavour_type %>
+  </div>
+  
+  <div class="form-group">
+    品牌
+     <%= @product.brand %>
+  </div>
+  
+  <div class="form-group">
+    原料
+     <%= @product.materials %>
+  </div>
+  
+  <div div="form-group">
+    描述
+      <%= raw(@product.description) %>
+  </div>
+  
+ 
+ 
+
+    </div>
+	</section>
+			<!-- // FEATURED PRODUCTS -->
+</main>
+		<!-- // SITE MAIN CONTENT -->
