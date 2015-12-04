@@ -116,15 +116,12 @@
 
 <%#= render 'layouts/header' %>
   <header class="am-topbar am-topbar-fixed-top">
-     
+    
   <div class="am-container" >
     
 
     <h1 class="am-topbar-brand">
-    <% if (request.url != (request.protocol + request.host_with_port + "/") && request.url != (request.protocol + request.host_with_port + "/playmates") )%>
-    <i class="am-header-icon am-icon-chevron-left am-icon-sm" style="color:#F3936A" onclick="goback()"></i>
-    &nbsp;&nbsp;&nbsp;
-    <%end %>
+    
     
      <%=image_tag "logo.jpg",:height => '40px',:width => '40px' %> 
      <a href="/" style="text-align:center">

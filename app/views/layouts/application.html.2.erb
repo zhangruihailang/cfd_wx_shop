@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
+<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="noIE" lang="en-US"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+	<title><%= yield(:title)%></title>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Favorite Icons 
+	<link rel="icon" href="/assets/favicon/favicon.html" type="image/x-icon" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-touch-icon-144x144-precomposed.html">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/favicon/apple-touch-icon-72x72-precomposed.html">
+	<link rel="apple-touch-icon-precomposed" href="/assets/favicon/apple-touch-icon-precomposed.html">
+-->
+	<%= favicon_link_tag 'favicon/favicon.html' %>
+	<%= favicon_link_tag 'favicon/apple-touch-icon-144x144-precomposed.html' %>
+	<%= favicon_link_tag 'favicon/apple-touch-icon-72x72-precomposed.html' %>
+	<%= favicon_link_tag 'favicon/apple-touch-icon-precomposed.html' %>
+
+	<!-- // Favorite Icons -->
+	
+	<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+	
+	<!-- GENERAL CSS FILES -->
+	<%= stylesheet_link_tag  "minified" %>
+	<!-- // GENERAL CSS FILES -->
+	
+
+	
+	<%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "modernizr.min" %>
+	
+		<%= stylesheet_link_tag  "responsive" %>
+</head>
+<body class="<%= yield(:body_class_name)%>">
+			
+	<!-- PAGE WRAPPER -->
+<div id="page-wrapper">
+
+	<!-- SITE HEADER -->
+	<%= render 'layouts/header' %>
+	<!-- // SITE HEADER -->
+    
+  	
+		<% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  	<% end %>
+    <%= yield %>
+				
+		<!-- SITE FOOTER -->
+		<%= render 'layouts/footer' %>
+  	<!-- // SITE FOOTER -->
+		
+</div>
+<!-- // PAGE WRAPPER -->
+
+<!-- Essential Javascripts -->
+<%= javascript_include_tag "minified" %>
+<!-- // Essential Javascripts -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-27646173-3', 'themina.net');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+  function goto(url){
+		window.location.href = url;
+  }
+</script>
+</body>
+</html>
