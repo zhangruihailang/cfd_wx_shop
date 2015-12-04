@@ -10,7 +10,7 @@
 								<img src="http://<%=product.thumbnail.url("378x505")%>">
 								<div class="am-slider-desc">
 									<div class="am-slider-content">
-										<h2 class="am-slider-title"></h2>
+										<h2 class="am-slider-title"><%= product.name%></h2>
 										<p><span style="font-size:1.5rem;color:#DD514C;">￥<%= product.cost_price%></span>
 											<span style="font-size:1.2rem;"><del>￥<%= product.promotion_price%></del></span></p>
 									</div><a class="am-slider-more"  onclick="goto('/product/index?id=<%=product.id%>')">进入查看</a></div>
