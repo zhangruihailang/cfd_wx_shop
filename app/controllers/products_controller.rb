@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     if params[:page_num]
       @page_num =  params[:page_num]
     end
-    page_size = 5
+    page_size = 25
     @total_page = ((Product.all.count(:id).to_i - 1)/page_size )+1
     @products = Product.all.order("updated_at desc").limit(page_size).offset(@page_num.to_i * page_size.to_i)
     
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     if params[:page_num]
       @page_num =  params[:page_num]
     end
-    page_size = 5
+    page_size = 25
     @total_page = ((Product.where("title like ? or name like ?", "%#{@keyword}%", "%#{@keyword}%").count(:id).to_i - 1)/page_size )+1
     @products = Product.where("title like ? or name like ?", "%#{@keyword}%", "%#{@keyword}%").order("updated_at desc").limit(page_size).offset(@page_num.to_i * page_size.to_i)
     
