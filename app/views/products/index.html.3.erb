@@ -40,27 +40,18 @@
                 <th class="table-type">原价</th>
                 <th class="table-type">折扣价</th>
                 <th class="table-type">所属栏目</th>
-                <th class="table-type">首页置顶</th>
                 <th class="table-author am-hide-sm-only">图片</th>
                 <th class="table-set">操作</th>
               </tr>
           </thead>
           <tbody>
             <% @products.each do |product| %>
-            
             <tr>
               <td><%= product.id %></td>
               <td><a href="#" onclick="goto('/products/<%= product.id %>')"><%= product.name %></a></td>
               <td><%= product.promotion_price %></td>
               <td><%= product.cost_price %></td>
               <td><%= product.category.name %></td>
-               <td>
-                 <% if product.is_carousel %>
-                 是
-                 <%else%>
-                 否
-                 <% end%>
-               </td>
               <td class="am-hide-sm-only">
                 <%= render :partial => "shared/one_pic", :locals => { :pic => product.thumbnail } %>
               </td>
@@ -70,15 +61,6 @@
                     <a class="am-btn am-btn-success am-btn-xs" onclick="goto('/products/<%= product.id %>/edit')"><span class="am-icon-pencil-square-o"></span>&nbsp; 编辑</a>
                     <br><br>
                     <a class="am-btn am-btn-success am-btn-xs " href="/product/index?id=<%= product.id %>" target="_blank"><span class="am-icon-copy"></span>&nbsp; 预览</a>
-                    <br><br>
-                    <% if product.is_carousel %>
-                     <a class="am-btn am-btn-success am-btn-xs " href="#" onclick="goto('/product_carousel?id=<%= product.id %>&is_carousel=0')"><span class="am-icon-copy"></span>取消置顶</a>
-                    
-                     <%else%>
-                     <a class="am-btn am-btn-success am-btn-xs " href="#" onclick="goto('/product_carousel?id=<%= product.id %>&is_carousel=1')"><span class="am-icon-copy"></span>首页置顶</a>
-                    
-                     <% end%>
-                     
                     <br><br>
                     <a class="am-btn am-btn-success am-btn-xs " data-confirm="确定删除吗?" onclick="goto('/delete_product?id=<%= product.id %>')"><span class="am-icon-trash"></span>&nbsp;&nbsp; 删除</a>
                     <br>

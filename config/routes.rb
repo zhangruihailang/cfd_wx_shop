@@ -56,6 +56,7 @@ Rails.application.routes.draw do
   
   post 'search_products' => 'products#search_products'
   get 'delete_product' => 'products#delete_product'
+  get 'product_carousel' => 'products#product_carousel'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -112,6 +112,16 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+   def product_carousel
+     @product = Product.find(params[:id])
+    is_carousel = true
+    if params[:is_carousel] == '0'
+      is_carousel = false
+    end
+    @product.update_attributes(:is_carousel => is_carousel)
+    redirect_to products_url
+   end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
