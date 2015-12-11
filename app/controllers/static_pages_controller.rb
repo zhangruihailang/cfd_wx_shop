@@ -48,6 +48,11 @@ class StaticPagesController < ApplicationController
     @products = @category.products
   end
   
+  def goods_putaojiu_mobile
+    @category = Category.find_by(:name => '葡萄酒')
+    @products = @category.products
+  end
+  
   def goods_temai_mobile
     # @page_num = 0
     # if params[:page_num]

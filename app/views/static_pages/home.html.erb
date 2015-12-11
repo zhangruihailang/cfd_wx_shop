@@ -27,7 +27,7 @@
 
 <div class="am-g">
 	<div class="am-u-sm-12 am-u-lg-12">
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-4
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-5
   am-avg-md-4 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }" >
       <li>
         <div class="am-gallery-item" align="center">
@@ -58,6 +58,14 @@
             <a href="#" class="">
               <img src="http://threejed.b0.upaiyun.com/9yue9/4.png"  />
                 <h3 class="am-gallery-title">私人定制</h3>
+            </a>
+        </div>
+      </li>
+       <li>
+        <div class="am-gallery-item" align="center">
+            <a href="#" class="" onclick="goto('/goods_putaojiu_mobile')">
+              <img src="http://threejed.b0.upaiyun.com/9yue9/5.png"  />
+                <h3 class="am-gallery-title">葡萄酒</h3>
             </a>
         </div>
       </li>
@@ -127,3 +135,35 @@
     <%end%>
    <%end%>
   </ul>
+  
+<div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+    <h2 class="am-titlebar-title ">
+        葡萄酒
+    </h2>
+
+    <nav class="am-titlebar-nav">
+        <a href="#more" class=""  onclick="goto('/goods_zhekou_mobile')">更多&raquo;</a>
+    </nav>
+</div>
+<% @products=Category.find_by(:name => '葡萄酒').products.limit(8).offset(0) %>
+
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-bordered" data-am-gallery="{  }" >
+	<% @products.each do |product| %>
+		<% cache product do%>
+      <li>
+        <div class="am-gallery-item">
+            <a href="#" class=""  onclick="goto('/product/index?id=<%=product.id%>')">
+              <img src="http://<%=product.thumbnail.url("378x505")%>"  />
+                <h3 class="am-gallery-title"><%=product.name%></h3>
+                <div class="am-gallery-desc">
+                	<span style="font-size:1.5rem;color:#DD514C;">￥<%= product.cost_price%></span>
+											<span style="font-size:1.2rem;"><del>￥<%= product.promotion_price%></del></span>
+                </div>
+            </a>
+        </div>
+      </li>
+    <%end%>
+   <%end%>
+  </ul>
+
