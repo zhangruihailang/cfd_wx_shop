@@ -53,6 +53,11 @@ class StaticPagesController < ApplicationController
     @products = @category.products
   end
   
+  def goods_xinpin_mobile
+    @category = Category.find_by(:name => '新品发布')
+    @products = @category.products
+  end
+  
   def goods_temai_mobile
     # @page_num = 0
     # if params[:page_num]

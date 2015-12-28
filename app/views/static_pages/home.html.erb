@@ -31,7 +31,7 @@
   am-avg-md-4 am-avg-lg-4 am-gallery-imgbordered" data-am-gallery="{  }" >
       <li>
         <div class="am-gallery-item" align="center">
-            <a href="#" class="">
+            <a href="#" class=""  onclick="goto('/goods_xinpin_mobile')">
               <img src="http://threejed.b0.upaiyun.com/9yue9/1.png"  />
                 <h3 class="am-gallery-title">新品发布</h3>
             </a>
@@ -72,6 +72,37 @@
   </ul>
   	</div>
 </div>
+
+<div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >
+    <h2 class="am-titlebar-title ">
+        新品发布
+    </h2>
+
+    <nav class="am-titlebar-nav">
+        <a href="#more" class=""  onclick="goto('/goods_xinpin_mobile')">更多&raquo;</a>
+    </nav>
+</div>
+<% @products=Category.find_by(:name => '新品发布').products.limit(8).offset(0) %>
+
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-bordered" data-am-gallery="{  }" >
+	<% @products.each do |product| %>
+		<% cache product do%>
+      <li>
+        <div class="am-gallery-item">
+            <a href="#" class=""  onclick="goto('/product/index?id=<%=product.id%>')">
+              <img src="http://<%=product.thumbnail.url("378x505")%>"  />
+                <h3 class="am-gallery-title"><%=product.name%></h3>
+                <div class="am-gallery-desc">
+                	<span style="font-size:1.5rem;color:#DD514C;">￥<%= product.cost_price%></span>
+											<span style="font-size:1.2rem;"><del>￥<%= product.promotion_price%></del></span>
+                </div>
+            </a>
+        </div>
+      </li>
+    <%end%>
+   <%end%>
+  </ul>
 
 
 <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default" >

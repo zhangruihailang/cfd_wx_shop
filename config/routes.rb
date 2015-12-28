@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   get 'goods_temai_mobile' => 'static_pages#goods_temai_mobile'
   get 'goods_zhekou_mobile' => 'static_pages#goods_zhekou_mobile'
   get 'goods_putaojiu_mobile' => 'static_pages#goods_putaojiu_mobile'
+  get 'goods_xinpin_mobile' => 'static_pages#goods_xinpin_mobile'
   get 'cart' => 'static_pages#cart'
   
   post 'search_products' => 'products#search_products'
